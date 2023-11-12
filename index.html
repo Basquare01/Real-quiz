@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+   <link rel="stylesheet" href="Css/all.min.css">
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="fonts-awe/css/all.css">
+</head>
+<body>
+    <div class="container">
+        <div class="title">
+            <h1>Quiz App</h1>
+        </div>
+        <div class="quiz-container">
+            <span id="SIMPLE">SIMPLE JS QUIZ</span>
+            <div class="quiz-question">
+                What is the standard ditance between the target and archer in the Olympics?
+            </div>
+            <div class="quiz-answers">
+               <button class="quiz-ans one">50 meter</button><button class="quiz-ans two">75 meter</button> <br><button class="quiz-ans three">100 meter</button><button class="quiz-ans four">120 meter</button>
+            </div>
+            <div class="nav">
+                <button id="previous"> <i class="fa-solid fa-arrow-circle-left"></i>Previous </button>
+                <button id="next">Next <i class="fa-solid fa-arrow-circle-right"></i></button>
+            </div>
+        </div>
+    </div>
+    <script>
+        let next = document.querySelector('#next');
+        let previous = document.querySelector('#previous');
+        let question = document.querySelector('.quiz-question');
+        let ans1 = document.querySelector('.one');
+        let ans2 = document.querySelector('.two');
+        let ans3 = document.querySelector('.three');
+        let ans4 = document.querySelector('.four');
+
+
+        const arr = [{question: 'Lorem ipsum dolor, sit amet consectetur adipisicing elit. Debitis, ratione!', ans1: 'sit', ans2: 'amet', ans3: 'Elit', ans4: 'ipsum'}, {question: 'Lorem ipsum, dolor sit amet consectetur adipisicing elit. Laborum, consequuntur?', ans1: 'Able', ans2: 'adore', ans3: 'arrow', ans4: 'axe'}, {question: 'How to Eat Food without having stomach ace in the midddle of the night like i did ealrier that day?', ans1: 'eat at 9pm', ans2: 'eat at 5pm', ans3: 'all of options', ans4: 'None'}, {question: ' What is the standard ditance between the target and archer in the Olympics?', ans1: '50 meter', ans2: '75 meter', ans3: '100 meter', ans4: '120 meter'}]
+
+        next.addEventListener('click', changeQuestion);
+        function changeQuestion(){
+           let rand = Math.floor(Math.random() * arr.length);
+
+           question.innerText = arr[rand].question;
+           ans1.innerText = arr[rand].ans1; 
+           ans2.innerText = arr[rand].ans2;
+           ans3.innerText = arr[rand].ans3;
+           ans4.innerText = arr[rand].ans4;
+        }
+
+
+        previous.addEventListener('click', revertQuestion);
+        function revertQuestion(){
+            let rand = Math.floor(Math.random() * arr.length - 1);
+
+           question.innerText = arr[rand].question;
+           ans1.innerText = arr[rand].ans1; 
+           ans2.innerText = arr[rand].ans2;
+           ans3.innerText = arr[rand].ans3;
+           ans4.innerText = arr[rand].ans4;
+        }
+    </script>
+</body>
+</html>
+
